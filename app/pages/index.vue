@@ -51,13 +51,12 @@
       />
     </section>
 
-    {{ isLoading }}
   </div>
 </template>
 
 <script setup>
 const { data, isPending, isLoading, isError, error, refetch } = useQuery({
   queryKey: ["posts"],
-  queryFn: () => $fetch("http://localhost:8080/api/post"),
+  queryFn: () => $fetch("https://api-flash-sport.onrender.com/api/post"),
 });
 </script>
