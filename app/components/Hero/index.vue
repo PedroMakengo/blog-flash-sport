@@ -12,7 +12,7 @@
 
       <form
         action=""
-        class="w-[350px] flex justify-between border-2 border-[#DDDDDD] mt-10 rounded-sm gap-2"
+        class="w-full md:w-[350px] flex justify-between border-2 border-[#DDDDDD] mt-10 rounded-sm gap-2"
       >
         <input
           type="text"

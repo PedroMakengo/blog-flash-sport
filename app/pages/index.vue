@@ -2,7 +2,7 @@
   <div class="flex flex-col pb-20">
     <Header />
 
-    <Hero />
+    <Hero class="mt-4 md:mt-5" />
 
     <section
       class="grid grid-cols-1 md:grid-cols-2 gap-6 w-full px-3 md:px-0 md:max-w-6xl mx-auto"

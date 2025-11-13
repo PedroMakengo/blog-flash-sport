@@ -34,7 +34,7 @@
 
         <div class="flex flex-col gap-6 mt-4">
           <NuxtLink
-            :to="`/posts/sobre-aqui-${index}`"
+            :to="`/sobre-aqui-${index}`"
             class="flex flex-col md:flex-row gap-4"
             v-for="index in 2"
             :key="index"
@@ -59,12 +59,6 @@
         </div>
       </div>
     </section>
-
-    <!-- <h1 v-if="data">
-      {{ data }}
-    </h1>
-
-    {{ slug }} -->
   </div>
 </template>
 
