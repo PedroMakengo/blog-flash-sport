@@ -8,7 +8,7 @@
       class="grid grid-cols-1 md:grid-cols-2 gap-6 w-full px-3 md:px-0 md:max-w-6xl mx-auto"
     >
       <template v-if="isLoading">
-        <div v-for="(element, index) in data" :key="index">
+        <div v-for="(element, index) in 6" :key="index">
           <div class="w-full h-48 bg-gray-300 animate-pulse rounded"></div>
 
           <div class="flex flex-col gap-2 mt-4">
@@ -50,7 +50,6 @@
         v-else
       />
     </section>
-
   </div>
 </template>
 

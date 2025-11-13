@@ -8,40 +8,21 @@
         <h1
           class="text-3xl md:text-[46px] font-bold mt-4 mb-1 font-merriweather"
         >
-          What I Learned About Life and Food Backpacking Around Greece
+          1221
         </h1>
         <span class="font-merriweather font-regular text-gray-600 text-sm mb-3"
           >Jun 21, 2021 • 11 min read</span
         >
 
         <img
-          src="/images/post-thumbal.png"
+          :src="200"
           alt="Blog Post Image"
           class="w-full h-auto rounded-md"
         />
 
         <Avatar :avatar="avatar" :author="author" />
 
-        <div class="flex flex-col gap-5 mt-4">
-          <p class="text-2xl font-roboto font-medium text-[#434343]">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ultrices
-            dui diam arcu pharetra at laoreet pellentesque. Imperdiet sit ut
-            ornare nulla risus id fames nascetur urna. Eros in neque tincidunt.
-          </p>
-
-          <p
-            v-for="index in 5"
-            :key="index"
-            class="text-xl font-roboto text-[#434343] font-regular"
-          >
-            Vel leo proin facilisis metus sit ut cursus sagittis. Diam donec mus
-            malesuada et ac vulputate. Aenean lacinia suspendisse et mattis
-            adipiscing id dictum commodo nunc. Feugiat lorem cras ut cras enim
-            neque, elit, facilisi habitasse. Facilisis faucibus nunc congue urna
-            diam. Vitae, diam justo, massa, elit. In et nibh ut in diam tellus
-            at tellus diam.
-          </p>
-        </div>
+        <div class="flex flex-col gap-5 mt-4" v-html="teste"></div>
       </div>
 
       <div class="flex flex-col mt-5 gap-4">
@@ -53,7 +34,7 @@
 
         <div class="flex flex-col gap-6 mt-4">
           <NuxtLink
-            :to="`/sobre-aqui-${index}`"
+            :to="`/posts/sobre-aqui-${index}`"
             class="flex flex-col md:flex-row gap-4"
             v-for="index in 2"
             :key="index"
@@ -78,10 +59,34 @@
         </div>
       </div>
     </section>
+
+    <h1 v-if="data">
+      {{ data }}
+    </h1>
+
+    {{ slug }}
   </div>
 </template>
 
-<script lang="ts" setup>
+<script setup>
 const avatar = "https://avatars.githubusercontent.com/u/61626420?v=4";
 const author = "Pedro Makengo";
+
+const route = useRoute();
+const slug = route.params.slug;
+const postId = slug;
+
+const { data, isPending, isError, error, refetch } = useQuery({
+  queryKey: ["post", postId.value],
+  queryFn: () => {
+    if (!postId.value) throw new Error("Slug inválido");
+    return $fetch(
+      `https://api-flash-sport.onrender.com/api/post/${postId.value}`
+    );
+  },
+  enabled: !!postId.value, // Só executa se postId for válido
+});
+
+console.log(postId.value);
+console.log(data.value);
 </script>
