@@ -60,11 +60,11 @@
       </div>
     </section>
 
-    <h1 v-if="data">
+    <!-- <h1 v-if="data">
       {{ data }}
     </h1>
 
-    {{ slug }}
+    {{ slug }} -->
   </div>
 </template>
 
@@ -76,17 +76,17 @@ const route = useRoute();
 const slug = route.params.slug;
 const postId = slug;
 
-const { data, isPending, isError, error, refetch } = useQuery({
-  queryKey: ["post", postId.value],
-  queryFn: () => {
-    if (!postId.value) throw new Error("Slug inválido");
-    return $fetch(
-      `https://api-flash-sport.onrender.com/api/post/${postId.value}`
-    );
-  },
-  enabled: !!postId.value, // Só executa se postId for válido
-});
+// const { data, isPending, isError, error, refetch } = useQuery({
+//   queryKey: ["post", postId.value],
+//   queryFn: () => {
+//     if (!postId.value) throw new Error("Slug inválido");
+//     return $fetch(
+//       `https://api-flash-sport.onrender.com/api/post/${postId.value}`
+//     );
+//   },
+//   enabled: !!postId.value, // Só executa se postId for válido
+// });
 
-console.log(postId.value);
-console.log(data.value);
+// console.log(postId.value);
+// console.log(data.value);
 </script>
