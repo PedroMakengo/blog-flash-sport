@@ -161,13 +161,20 @@ import { useQuery } from '@tanstack/vue-query'
 const categoriaSelecionada = ref<string | null>(null)
 // const posts = ref<ITPost[]>([])
 
-const { data, isPending, isLoading, isError, error, refetch } = useQuery({
+const { data, isPending, isError, error, refetch } = useQuery({
   queryKey: ['posts'],
   queryFn: async () => {
     const response = await fetch(
       'https://api-flash-sport.onrender.com/api/post',
     )
-    return response.json() as Promise<ITPost[]>
+    const result = (await response.json()) as ITPost[]
+
+    // Ordenação: do mais novo para o mais antigo
+    return result.sort(
+      (a, b) =>
+        new Date(b.dataPublicacao).getTime() -
+        new Date(a.dataPublicacao).getTime(),
+    )
   },
 })
 
@@ -212,8 +219,6 @@ const postsFiltrados = computed(() => {
   if (!categoriaSelecionada.value) {
     return posts.value
   }
-
-  console.log(posts.value)
 
   return posts.value.filter((post) =>
     post.categorias.some(
