@@ -1,5 +1,5 @@
 <template>
-  <main class="bg-[#f8fafc] h-screen">
+  <main class="bg-[#f8fafc]">
     <NuxtPage />
   </main>
 </template>
