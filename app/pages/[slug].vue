@@ -27,7 +27,7 @@
         </h1>
         <span
           class="font-merriweather font-regular text-gray-600 text-sm mb-3"
-          >{{ post.dataPublicacao }}</span
+          >{{ formatarDataEvento(post.dataPublicacao) }}</span
         >
 
         <img
