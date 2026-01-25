@@ -3,7 +3,7 @@
     class="w-full bg-white border-b border-gray-300 py-4 sticky top-0 left-0 z-50"
   >
     <div
-      class="px-4 md:px-8 max-w-6xl mx-auto flex items-center justify-between"
+      class="px-4 md:px-0 max-w-6xl mx-auto flex items-center justify-between"
     >
       <h1
         class="text-xl md:text-2xl font-bold text-[#000638] font-playfair shrink-0"
@@ -16,7 +16,9 @@
           <li><NuxtLink to="/" class="nav-link">Home</NuxtLink></li>
           <li><NuxtLink to="/sobre" class="nav-link">Sobre</NuxtLink></li>
           <li>
-            <a href="https://wa.me/921538972?text=..." class="nav-link"
+            <a
+              href="https://wa.me/921538972?text=Quero-participar-do-projeto"
+              class="nav-link"
               >Contacto</a
             >
           </li>
@@ -54,7 +56,11 @@
             >
           </li>
           <li>
-            <a href="https://wa.me/921538972" class="block py-2">Contacto</a>
+            <a
+              href="https://wa.me/921538972?text=Quero-participar-do-projeto"
+              class="block py-2"
+              >Contacto</a
+            >
           </li>
         </ul>
       </div>

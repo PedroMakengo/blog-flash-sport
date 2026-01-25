@@ -25,7 +25,7 @@
         </p>
       </div>
     </div>
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-0 py-16">
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-16">
         <div class="lg:col-span-7 space-y-8">
           <section>
