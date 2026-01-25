@@ -1,32 +1,14 @@
 <template>
-  <section class="w-full bg-white h-80">
-    <div
-      class="px-3 md:px-0 max-w-6xl h-full mx-auto flex flex-col items-center justify-center py-10"
-    >
-      <h1 class="text-3xl md:text-5xl font-bold font-merriweather">
-        Acompanhe todas as informações aqui
-      </h1>
-      <p class="text-gray-600 text-xl my-2 mt-2 font-roboto">
-        Seu blog de notícias desportiva sobre PopFlash
-      </p>
-
-      <form
-        action=""
-        class="w-full md:w-[350px] flex justify-between border-2 border-[#DDDDDD] mt-10 rounded-sm gap-2"
-      >
-        <input
-          type="text"
-          placeholder="Pesquisa artigo"
-          class="w-full p-2 px-6 outline-none font-roboto placeholder:text-gray-400"
-        />
-        <button class="w-1/7 flex items-center justify-center">
-          <Search color="#DDDDDD" :size="18" />
-        </button>
-      </form>
+  <div
+    class="w-6xl mx-auto h-24 bg-slate-200 border border-dashed border-slate-400 rounded-md"
+  >
+    <div class="flex flex-col justify-center h-full items-center">
+      <h2 class="uppercase font-bold">Publicidade</h2>
+      <p class="text-sm text-gray-500">Espaço publicitário Premium</p>
     </div>
-  </section>
+  </div>
 </template>
 
 <script setup>
-import { Search } from "lucide-vue-next";
+import { Search } from 'lucide-vue-next'
 </script>

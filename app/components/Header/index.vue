@@ -1,126 +1,65 @@
 <template>
-  <header class="w-full bg-white py-5 top-0 left-0 z-50">
+  <header
+    class="w-full bg-white border-b border-gray-300 py-5 top-0 left-0 z-50"
+  >
     <div
       class="px-4 md:px-0 max-w-6xl mx-auto flex items-center justify-between"
     >
-      <!-- LOGO -->
-      <h1 class="text-2xl font-bold text-[#000638] font-merriweather">
+      <h1 class="text-2xl font-bold text-[#000638] font-playfair">
         Flash <span class="font-regular font-roboto text-gray-800">Sport</span>
       </h1>
 
-      <!-- Botão Hambúrguer (visível só no mobile) -->
-      <button
-        class="md:hidden text-gray-700 focus:outline-none"
-        @click="menuOpen = !menuOpen"
-      >
-        <svg
-          v-if="!menuOpen"
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke-width="1.5"
-          stroke="currentColor"
-          class="w-7 h-7"
-        >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
-          />
-        </svg>
-
-        <svg
-          v-else
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke-width="1.5"
-          stroke="currentColor"
-          class="w-7 h-7"
-        >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            d="M6 18L18 6M6 6l12 12"
-          />
-        </svg>
-      </button>
-
-      <!-- Menu desktop -->
-      <nav class="hidden md:block font-roboto">
-        <ul class="flex gap-4">
+      <nav class="font-roboto flex-1 justify-center items-center space-x-8">
+        <ul class="flex gap-6 items-center justify-center font-roboto">
           <li>
-            <NuxtLink to="/" class="text-gray-600 hover:text-black"
-              >Blog</NuxtLink
+            <NuxtLink
+              to="/"
+              class="text-gray-600 font-semibold font-roboto hover:text-black"
+              >Home</NuxtLink
             >
           </li>
           <li>
-            <NuxtLink to="/" class="text-gray-600 hover:text-black"
-              >About</NuxtLink
+            <NuxtLink
+              to="/sobre"
+              class="text-gray-600 font-semibold font-roboto hover:text-black"
+              >Sobre</NuxtLink
             >
           </li>
           <li>
-            <NuxtLink to="/" class="text-gray-600 hover:text-black"
-              >Contact</NuxtLink
+            <NuxtLink
+              to="/contacto"
+              class="text-gray-600 font-semibold font-roboto hover:text-black"
+              >Contacto</NuxtLink
             >
           </li>
         </ul>
       </nav>
+
+      <div class="space-x-4">
+        <button class="cursor-pointer">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="lucide lucide-moon-icon lucide-moon"
+          >
+            <path
+              d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"
+            />
+          </svg>
+        </button>
+      </div>
     </div>
-
-    <!-- Menu mobile (dropdown ou lateral) -->
-    <transition name="slide-fade">
-      <nav
-        v-if="menuOpen"
-        class="md:hidden bg-white shadow-lg mt-3 font-roboto border-t"
-      >
-        <ul class="flex flex-col py-4 space-y-3 text-center">
-          <li>
-            <NuxtLink
-              to="/"
-              class="text-gray-700 hover:text-black"
-              @click="menuOpen = false"
-              >Blog</NuxtLink
-            >
-          </li>
-          <li>
-            <NuxtLink
-              to="/"
-              class="text-gray-700 hover:text-black"
-              @click="menuOpen = false"
-              >About</NuxtLink
-            >
-          </li>
-          <li>
-            <NuxtLink
-              to="/"
-              class="text-gray-700 hover:text-black"
-              @click="menuOpen = false"
-              >Contact</NuxtLink
-            >
-          </li>
-        </ul>
-      </nav>
-    </transition>
   </header>
 </template>
 
 <script setup>
-import { ref } from "vue";
-const menuOpen = ref(false);
+import { ref } from 'vue'
+const menuOpen = ref(false)
 </script>
-
-<style scoped>
-.slide-fade-enter-active,
-.slide-fade-leave-active {
-  transition: all 0.3s ease;
-}
-.slide-fade-enter-from {
-  opacity: 0;
-  transform: translateY(-10px);
-}
-.slide-fade-leave-to {
-  opacity: 0;
-  transform: translateY(-10px);
-}
-</style>

@@ -2,7 +2,44 @@
   <div class="flex flex-col pb-20">
     <Header />
 
-    <Hero class="mt-4 md:mt-5" />
+    <Hero class="my-10" />
+
+    <div class="w-6xl mx-auto mb-10">
+      <nav
+        class="flex items-center space-x-2 overflow-x-auto pb-4 mb-8 scrollbar-hide border-b border-slate-200"
+      >
+        <a
+          class="whitespace-nowrap px-4 py-2 rounded-full bg-[#1e3a8a] text-white font-medium text-sm"
+          href="#"
+          >Tudo</a
+        >
+        <a
+          class="whitespace-nowrap px-4 py-2 rounded-full hover:bg-slate-100 font-medium text-sm transition-colors"
+          href="#"
+          >Futebol</a
+        >
+        <a
+          class="whitespace-nowrap px-4 py-2 rounded-full hover:bg-slate-100 font-medium text-sm transition-colors"
+          href="#"
+          >Basquetebol</a
+        >
+        <a
+          class="whitespace-nowrap px-4 py-2 rounded-full hover:bg-slate-100 font-medium text-sm transition-colors"
+          href="#"
+          >Judo</a
+        >
+        <a
+          class="whitespace-nowrap px-4 py-2 rounded-full hover:bg-slate-100 font-medium text-sm transition-colors"
+          href="#"
+          >Atletismo</a
+        >
+        <a
+          class="whitespace-nowrap px-4 py-2 rounded-full hover:bg-slate-100 font-medium text-sm transition-colors"
+          href="#"
+          >Futebol Comunitário</a
+        >
+      </nav>
+    </div>
 
     <section
       class="grid grid-cols-1 md:grid-cols-2 gap-6 w-full px-3 md:px-0 md:max-w-6xl mx-auto"
@@ -55,7 +92,7 @@
 
 <script setup>
 const { data, isPending, isLoading, isError, error, refetch } = useQuery({
-  queryKey: ["posts"],
-  queryFn: () => $fetch("https://api-flash-sport.onrender.com/api/post"),
-});
+  queryKey: ['posts'],
+  queryFn: () => $fetch('https://api-flash-sport.onrender.com/api/post'),
+})
 </script>
