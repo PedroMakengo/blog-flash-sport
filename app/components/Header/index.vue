@@ -1,65 +1,90 @@
 <template>
   <header
-    class="w-full bg-white border-b border-gray-300 py-5 top-0 left-0 z-50"
+    class="w-full bg-white border-b border-gray-300 py-4 sticky top-0 left-0 z-50"
   >
     <div
-      class="px-4 md:px-0 max-w-6xl mx-auto flex items-center justify-between"
+      class="px-4 md:px-8 max-w-6xl mx-auto flex items-center justify-between"
     >
-      <h1 class="text-2xl font-bold text-[#000638] font-playfair">
-        Flash <span class="font-regular font-roboto text-gray-800">Sport</span>
+      <h1
+        class="text-xl md:text-2xl font-bold text-[#000638] font-playfair shrink-0"
+      >
+        Flash <span class="font-normal font-roboto text-gray-800">Sport</span>
       </h1>
 
-      <nav class="font-roboto flex-1 justify-center items-center space-x-8">
-        <ul class="flex gap-6 items-center justify-center font-roboto">
+      <nav class="hidden md:flex flex-1 justify-center items-center">
+        <ul class="flex gap-8 items-center font-roboto">
+          <li><NuxtLink to="/" class="nav-link">Home</NuxtLink></li>
+          <li><NuxtLink to="/sobre" class="nav-link">Sobre</NuxtLink></li>
           <li>
-            <NuxtLink
-              to="/"
-              class="text-gray-600 font-semibold font-roboto hover:text-black"
-              >Home</NuxtLink
-            >
-          </li>
-          <li>
-            <NuxtLink
-              to="/sobre"
-              class="text-gray-600 font-semibold font-roboto hover:text-black"
-              >Sobre</NuxtLink
-            >
-          </li>
-          <li>
-            <NuxtLink
-              to="/contacto"
-              class="text-gray-600 font-semibold font-roboto hover:text-black"
-              >Contacto</NuxtLink
+            <a href="https://wa.me/921538972?text=..." class="nav-link"
+              >Contacto</a
             >
           </li>
         </ul>
       </nav>
 
-      <div class="space-x-4">
-        <button class="cursor-pointer">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            class="lucide lucide-moon-icon lucide-moon"
-          >
-            <path
-              d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"
-            />
-          </svg>
+      <div class="flex items-center space-x-4">
+        <button
+          class="cursor-pointer p-2 hover:bg-gray-100 rounded-full transition-colors"
+        >
+          <Moon :size="20" />
+        </button>
+
+        <button @click="isOpen = !isOpen" class="md:hidden p-2 text-gray-600">
+          <Menu v-if="!isOpen" :size="28" />
+          <X v-else :size="28" />
         </button>
       </div>
     </div>
+
+    <transition name="fade">
+      <div
+        v-if="isOpen"
+        class="md:hidden absolute top-full left-0 w-full bg-white border-b border-gray-200 shadow-lg"
+      >
+        <ul class="flex flex-col p-4 space-y-4 font-roboto font-semibold">
+          <li>
+            <NuxtLink to="/" @click="isOpen = false" class="block py-2"
+              >Home</NuxtLink
+            >
+          </li>
+          <li>
+            <NuxtLink to="/sobre" @click="isOpen = false" class="block py-2"
+              >Sobre</NuxtLink
+            >
+          </li>
+          <li>
+            <a href="https://wa.me/921538972" class="block py-2">Contacto</a>
+          </li>
+        </ul>
+      </div>
+    </transition>
   </header>
 </template>
 
 <script setup>
 import { ref } from 'vue'
-const menuOpen = ref(false)
+import { Moon, Menu, X } from 'lucide-vue-next'
+
+const isOpen = ref(false)
 </script>
+
+<style scoped>
+@reference "../../assets/css/main.css";
+
+.nav-link {
+  @apply text-gray-600 font-semibold font-roboto hover:text-black transition-colors;
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease;
+}
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+  transform: translateY(-10px);
+}
+</style>

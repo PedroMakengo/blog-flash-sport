@@ -45,7 +45,7 @@ const props = defineProps<{
   title: string
   data: string
   category: string
-  describe: string
+  describe?: string
   avatar: string
   author: string
 }>()

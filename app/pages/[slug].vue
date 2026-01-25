@@ -1,7 +1,5 @@
 <template>
   <div>
-    <Header />
-
     <section class="px-3 md:px-0 w-full max-w-3xl mx-auto mt-10 pb-11">
       <div v-if="isError">
         <h1 class="text-3xl font-bold text-red-600">
@@ -88,14 +86,14 @@
 </template>
 
 <script setup>
-import { computed } from "vue";
-import { firstParagraph } from "../utils/firstParagraph";
+import { computed } from 'vue'
+import { firstParagraph } from '../utils/firstParagraph'
 
-const avatar = "https://avatars.githubusercontent.com/u/61626420?v=4";
-const author = "Pedro Makengo";
+const avatar = 'https://avatars.githubusercontent.com/u/61626420?v=4'
+const author = 'Pedro Makengo'
 
-const route = useRoute();
-const slug = computed(() => route.params.slug);
+const route = useRoute()
+const slug = computed(() => route.params.slug)
 
 const {
   data: post,
@@ -104,30 +102,28 @@ const {
   error,
   refetch,
 } = useQuery({
-  queryKey: ["post", slug],
+  queryKey: ['post', slug],
   queryFn: () => {
-    if (!slug.value) throw new Error("Slug inválido");
-    return $fetch(
-      `https://api-flash-sport.onrender.com/api/post/${slug.value}`
-    );
+    if (!slug.value) throw new Error('Slug inválido')
+    return $fetch(`https://api-flash-sport.onrender.com/api/post/${slug.value}`)
   },
   enabled: computed(() => !!slug.value),
-});
+})
 
-const authorId = computed(() => post.value?.autorId);
+const authorId = computed(() => post.value?.autorId)
 
 const {
   data: dataPostsAuthors,
   isPending: isPendingPostsAuthors,
   isError: isErrorPostsAuthors,
 } = useQuery({
-  queryKey: ["posts-authors", authorId],
+  queryKey: ['posts-authors', authorId],
   queryFn: () => {
-    if (!authorId.value) throw new Error("Author ID inválido");
+    if (!authorId.value) throw new Error('Author ID inválido')
     return $fetch(
-      `https://api-flash-sport.onrender.com/api/post/${authorId.value}/autor`
-    );
+      `https://api-flash-sport.onrender.com/api/post/${authorId.value}/autor`,
+    )
   },
   enabled: computed(() => !!authorId.value),
-});
+})
 </script>
